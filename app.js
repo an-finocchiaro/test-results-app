@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const db = require('./services/testResultsService');
+const service = require('./services/testResultsService');
 const port = 4000;
 
 app.use(bodyParser.json());
@@ -11,10 +11,10 @@ app.use(
   })
 );
 
-app.get('/dbtest', db.getDbTest);
-app.get('/csv-file', db.getCsvFile);
+//app.get('/dbtest', service.getDbTest);
+app.get('/csv-file', service.getCsvFile);
 //app.get('/test-results', db.getTestResultsData);
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
+  console.log(`Server running at http://localhost:${port}`);
 });
