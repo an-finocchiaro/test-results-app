@@ -28,7 +28,7 @@ describe('Endpoint: get | test_results', () => {
       test_result: '0'
     });
 
-    const one_test = await Test.create({
+    const other_test = await Test.create({
       patient_registration_number: '048.108.026-04',
       patient_name: 'Juliana dos Reis Filho',
       patient_email: 'mariana_crist@kutch-torp.com',
@@ -47,16 +47,11 @@ describe('Endpoint: get | test_results', () => {
       test_result: '18'
     });
 
-
-
     const response = await request(app)
       .get("/test_results")
-      .send({
-        email: user.email,
-        password: "123456"
-      });
 
     expect(response.status).toBe(200);
+    expect(response.text).toContain('Hello world')
   });
 });
 

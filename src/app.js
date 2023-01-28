@@ -3,25 +3,29 @@ require('dotenv').config({
 });
 
 const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const path = require("path");
+//const router = express.Router();
 
-class AppController {
-  constructor() {
-    this.express = express();
-    this.routes();
-    this.views();
-  }
-  routes() {
-    this.express.use(require('./routes'));
-  }
-  views() {
-    this.express.engine('handlebars', engine());
-    this.express.set('view engine', 'handlebars');
-    this.express.set('views', './app/views')
-  }
-}
+const allTestsRoute = require('./routes/allTestsRoute');
 
+app.set('views', path.join(__dirname,'/app/views'));
+app.set('view engine', 'ejs');
+app.use(express.static('views'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-module.exports = new AppController().express
+
+app.use('/all-tests', allTestsRoute);
+
+    
+/*app.get("/about", (req, res) => {
+  res.render('about');
+});*/
+ 
+
+module.exports = app;
 
 
 /*const express = require('express');

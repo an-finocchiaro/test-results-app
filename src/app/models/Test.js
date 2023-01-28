@@ -20,4 +20,4 @@ module.exports = (sequelize, DataTypes) => {
     test_result: DataTypes.STRING,
   });
   return Test;
-  
+}; 
