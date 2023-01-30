@@ -16,7 +16,6 @@ module.exports = {
       },
       patient_name: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false
       },
       patient_email: {
@@ -57,7 +56,8 @@ module.exports = {
       },
       test_token: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        key: true
       },
       test_date: {
         type: Sequelize.DATEONLY,
@@ -87,6 +87,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('tests');
   }
 };

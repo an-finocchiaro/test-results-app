@@ -3,6 +3,6 @@ const router = express.Router();
 
 const TestsController = require('../app/controllers/tests-controller')
 
-router.get('/', TestsController.getAllTests);
+router.get('/', TestsController.upload);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { sequelize, DataTypes } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   const Test = sequelize.define("Test", {
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     test_date: DataTypes.DATEONLY,
     test_type: DataTypes.STRING,
     test_limits: DataTypes.STRING,
-    test_result: DataTypes.STRING,
+    test_result: DataTypes.STRING
   });
   return Test;
-}; 
+};

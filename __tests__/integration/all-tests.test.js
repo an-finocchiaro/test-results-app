@@ -3,7 +3,7 @@ const app = require('../../src/app');
 const { Test } = require('../../src/app/models');
 const truncate = require('../utils/truncate');
 
-describe('Endpoint: get | test_results', () => {
+describe('Endpoint: get | all-tests', () => {
   beforeEach(async () => {
     await truncate();
   });
@@ -47,11 +47,13 @@ describe('Endpoint: get | test_results', () => {
       test_result: '18'
     });
 
+    //const json_data = [{one_test}, {other_test}]
+
     const response = await request(app)
-      .get("/test_results")
+      .get("/all-tests")
 
     expect(response.status).toBe(200);
-    expect(response.text).toContain('Hello world')
+    //expect(response.json).toEqual(json_data)
   });
 });
 
