@@ -55,8 +55,50 @@ exports.uploadFile = async (req, res) => {
   });
 };
 
-
 exports.getAllTests = async (req, res) => {
   const data = await Test.findAll();
   res.json(data);
 };
+
+exports.searchToken = async (req, res) => {
+  console.log(req.params)
+  const token = req.params.token;
+  const data = await Test.findAll({
+    where: {
+      test_token: token,
+    },
+  });
+  const form_data = {
+    token: rows[0].test_token,
+    data do exame: rows[0].test_date,
+    cpf: rows[0].patient_registration_number,
+    nome: rows[0].patient_name,
+    email: rows[0].patient_email,
+    data de nascimento: rows[0].patient_birthday,
+    médico: {
+      crm: rows[0].doctor_license,
+      crm/estado: rows[0].doctor_license_state,
+      nome: rows[0].doctor_name
+    },
+    exames: {}
+
+  }
+  console.log(data[2])
+  res.json(data);
+};
+"doctor": {
+  "crm":"B000B7CDX4",
+  "crm_state":"SP",
+  "name":"Sra. Calebe Louzada"
+},
+"tests":[
+  {
+     "type":"hemácias",
+     "limits":"45-52",
+     "result":"48"
+  },
+  {
+     "type":"leucócitos",
+     "limits":"9-61",
+     "result":"75"
+  },

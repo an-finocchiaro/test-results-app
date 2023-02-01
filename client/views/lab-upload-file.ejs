@@ -1,0 +1,19 @@
+
+<%- contentFor('body') %>
+  <div>
+    <br/>
+    <div class="box">
+      <h3 class="title">Escolha o arquivo csv para ser enviado ao servidor:</h3>
+    </div>
+    <br/>
+    <br/>
+    <div class="form-control">
+      <form method="post" enctype="multipart/form-data" action="../../uploads">
+        <input type="file" name="file" class="input">
+        <br/>
+        <br/>
+        <br/>
+        <input type="submit" value="Enviar" class="btn btn-success btn-lg"></button>
+      </form>
+    </div>
+  </div>
