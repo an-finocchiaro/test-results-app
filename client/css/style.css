@@ -1,0 +1,62 @@
+.body {
+  background: #2e2e2e;
+}
+
+.header-img {
+  text-align: center;
+}
+
+.lab-img {
+  margin-top: 2rem;
+  width: 70%;
+}
+
+.box {
+  text-align: left;
+  margin-left: 13rem;
+}
+
+.title {
+  font-family:'Montserrat';
+	font-size: 22px;
+  color: whitesmoke;
+}
+
+.form {
+  text-align: left;
+  margin-left: 13rem;
+}
+
+.input {
+  width:40%;
+  height: 30px;
+	background-color:#2e2e2e;
+	color:whitesmoke;
+	border-style:none;
+	border-radius:5px;
+	cursor:pointer;
+	margin-top:10px;
+	font-family:'Montserrat';
+	font-size:15px;
+}
+
+.input-token {
+  background-color:#3e3e3e;
+}
+
+.button {
+  padding: 5px;
+  width:25%;
+	background-color:#0a3871;
+	color:whitesmoke;
+	border-style:none;
+	border-radius:5px;
+	cursor:pointer;
+	margin-top:5px;
+	font-family:'Montserrat';
+	font-size:15px;
+}
+
+.button-token {
+  margin-top: 10px;
+}
