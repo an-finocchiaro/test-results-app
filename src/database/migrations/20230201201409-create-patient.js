@@ -3,77 +3,45 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('tests', {
+    await queryInterface.createTable('patients', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
       },
-      patient_registration_number: {
+      registration_number: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      patient_name: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      patient_email: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      patient_birthday: {
+      birthday: {
         type: Sequelize.DATEONLY,
         allowNull: false
       },
-      patient_address: {
+      address: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      patient_city: {
+      city: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      patient_state: {
+      state: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      doctor_license: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      doctor_license_state: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      doctor_name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      doctor_email: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      test_token: {
+      token: {
         type: Sequelize.STRING,
         allowNull: false,
         key: true
-      },
-      test_date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false
-      },
-      test_type: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      test_limits: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      test_result: {
-        type: Sequelize.STRING,
-        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
@@ -87,6 +55,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('tests');
+    await queryInterface.dropTable('patients');
   }
 };

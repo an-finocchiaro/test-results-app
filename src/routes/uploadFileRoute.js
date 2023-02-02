@@ -5,6 +5,6 @@ const upload = multer({dest: "uploads/"})
 
 const TestsController = require('../app/controllers/tests-controller')
 
-router.post('/', upload.single("file"), TestsController.uploadFile);
+router.post('/uploads', upload.single("file"), TestsController.uploadFile);
 
 module.exports = router;

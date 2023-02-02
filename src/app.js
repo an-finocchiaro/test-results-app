@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/upload-file', uploadRoute);
-app.use('/uploads', uploadFileRoute);
+app.use('/', uploadFileRoute);
 app.use('/all-tests', allTestsRoute);
 app.use('/tests', searchTokenRoute);
 

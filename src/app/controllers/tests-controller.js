@@ -4,11 +4,10 @@ const path = require("path");
 const fs = require('fs');
 
 exports.upload = (req, res) => {
-  res.render('lab-upload-file');
+  res.status(200);
 }
 
 exports.uploadFile = async (req, res) => {
- 
   let tests = [];
   const filePath = path.join(__dirname, '../../../uploads/' + req.file.filename);
   
@@ -39,18 +38,12 @@ exports.uploadFile = async (req, res) => {
     tests.push(object);
   })
   .on("end", () => {
-    console.log(tests)
     Test.bulkCreate(tests)
     .then(() => {
-      res.status(200).send({
-        message: "Os registros foram atualizados com sucesso",
-      });
+      res.status(200).send();
     })
     .catch((error) => {
-      res.status(500).send({
-        message: "Não foi possível atualizar os registros",
-        error: error.message,
-      });
+      res.status(500).send();
     });
   });
 };
@@ -61,44 +54,11 @@ exports.getAllTests = async (req, res) => {
 };
 
 exports.searchToken = async (req, res) => {
-  console.log(req.params)
   const token = req.params.token;
+  const results = []
   const data = await Test.findAll({
     where: {
       test_token: token,
     },
   });
-  const form_data = {
-    token: rows[0].test_token,
-    data do exame: rows[0].test_date,
-    cpf: rows[0].patient_registration_number,
-    nome: rows[0].patient_name,
-    email: rows[0].patient_email,
-    data de nascimento: rows[0].patient_birthday,
-    médico: {
-      crm: rows[0].doctor_license,
-      crm/estado: rows[0].doctor_license_state,
-      nome: rows[0].doctor_name
-    },
-    exames: {}
-
-  }
-  console.log(data[2])
-  res.json(data);
 };
-"doctor": {
-  "crm":"B000B7CDX4",
-  "crm_state":"SP",
-  "name":"Sra. Calebe Louzada"
-},
-"tests":[
-  {
-     "type":"hemácias",
-     "limits":"45-52",
-     "result":"48"
-  },
-  {
-     "type":"leucócitos",
-     "limits":"9-61",
-     "result":"75"
-  },
