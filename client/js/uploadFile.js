@@ -1,6 +1,6 @@
 const form = document.getElementById('form')
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   const uploadElement = document.getElementById('file');
   const file = uploadElement.files[0];
@@ -11,6 +11,7 @@ form.addEventListener('submit', function(event) {
     method: "POST",
     body: data,
   })
+  .then(alert('Arquivo enviado'))
   .then((res) => res.json())
   .catch(err => console.log(err))
 });

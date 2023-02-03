@@ -12,6 +12,4 @@ function tokenSearch() {
     .then((res) => res.json('ok'))
     .catch(err => console.log(err))
   });
-  let tokenLink = token.
-  location.replace(`http://localhost:4000/tests/${token}`)
 }
