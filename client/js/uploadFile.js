@@ -1,4 +1,4 @@
-const form = document.getElementById('form');
+const form = document.getElementById('form')
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -11,6 +11,6 @@ form.addEventListener('submit', function(event) {
     method: "POST",
     body: data,
   })
-  .then(res => res.json())
+  .then((res) => res.json())
   .catch(err => console.log(err))
-})
+});

@@ -11,8 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     state: DataTypes.STRING,
     token: DataTypes.STRING,
   });
+  return Patient;
+};
 
-  Patient.associate = (models) => {
+/*
+Patient.associate = (models) => {
     Patient.hasOne(models.Doctor,
       { foreignKey: 'patient_id', as: 'doctors' });
   };
@@ -20,6 +23,4 @@ module.exports = (sequelize, DataTypes) => {
   Patient.associate = (models) => {
     Patient.hasMany(models.Result,
       { foreignKey: 'patient_id', as: 'results' });
-  };
-  return Patient;
-};
+  };*/

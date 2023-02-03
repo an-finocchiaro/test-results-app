@@ -6,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     license_state: DataTypes.STRING,
     name: DataTypes.STRING,
     email: DataTypes.STRING,
+    token: DataTypes.STRING,
   });
-
-  Doctor.associate = (models) => {
-    Doctor.belongsTo(models.Patient)
-  };
   return Doctor;
 };
+
+/*Doctor.associate = (models) => {
+  Doctor.belongsTo(models.Patient)
+};*/

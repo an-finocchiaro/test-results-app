@@ -7,11 +7,14 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATEONLY,
     type: DataTypes.STRING,
     limits: DataTypes.STRING,
-    test_result: DataTypes.STRING
+    test_result: DataTypes.STRING,
+    token: DataTypes.STRING,
   });
 
-  Result.associate = (models) => {
-    Result.belongsTo(models.Patient)
-  };
   return Result;
 };
+
+/*
+  Result.associate = (models) => {
+    Result.belongsTo(models.Patient)
+  };*/
